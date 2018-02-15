@@ -15,11 +15,11 @@ elixir(function(mix) {
     mix.sass('app.scss')
 
         .styles([
+            'libs/blog-post.css',
             'libs/bootstrap.css',
             'libs/bootstrap.min.css',
             'libs/font-awesome.css',
             'libs/metisMenu.css',
-            'libs/blog-post.css',
             'libs/sb-admin-2.css',
 
             'libs/morris.css',
