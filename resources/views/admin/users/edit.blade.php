@@ -36,8 +36,15 @@
                 {!! Form::label('password', 'Password:') !!}
                 {!! Form::password('password', ['class'=>'form-control']) !!}
             </div>
-            <div class="form-group">
+            <div class="form-group col-sm-6">
                 {!! Form::submit('Edit User', ['class'=>'btn btn-primary']) !!}
+            </div>
+        {!! Form::close() !!}
+
+        {!! Form::open(['method'=>'DELETE', 'action'=>['AdminUsersController@destroy', $user->id]]) !!}
+            {{csrf_field()}}
+            <div class="from-group col-sm-6">
+                {!! Form::submit('Delete User', ['class'=>'btn btn-danger pull-right']) !!}
             </div>
         {!! Form::close() !!}
 

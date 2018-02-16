@@ -18,7 +18,7 @@
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!-- WARNING: Respond.js doesnt work if you view the page via file: -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -53,16 +53,16 @@
 
             <!-- /.dropdown -->
             <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" href="#">
+                    <i class="fa fa-user fa-fw"></i> {{ auth()->user()->name }} <i class="fa fa-caret-down"></i>
                 </a>
-                <ul class="dropdown-menu dropdown-user">
-                    <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="{{ url('/admin/profile') }}/{{auth()->user()->id}}"><i class="fa fa-user fa-fw"></i> User Profile</a>
                     </li>
-                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                    <li><a href="{{ url('/admin/users') }}/{{auth()->user()->id}}/edit"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a href="{{ url('/logout') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <li><a href="{{ url('/auth/logout') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                     </li>
                 </ul>
                 <!-- /.dropdown-user -->
@@ -77,25 +77,25 @@
 
 
 
-        {{--<ul class="nav navbar-nav navbar-right">--}}
-        {{--@if(auth()->guest())--}}
-        {{--@if(!Request::is('auth/login'))--}}
-        {{--<li><a href="{{ url('/auth/login') }}">Login</a></li>--}}
-        {{--@endif--}}
-        {{--@if(!Request::is('auth/register'))--}}
-        {{--<li><a href="{{ url('/auth/register') }}">Register</a></li>--}}
-        {{--@endif--}}
-        {{--@else--}}
-        {{--<li class="dropdown">--}}
-        {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ auth()->user()->name }} <span class="caret"></span></a>--}}
-        {{--<ul class="dropdown-menu" role="menu">--}}
-        {{--<li><a href="{{ url('/auth/logout') }}">Logout</a></li>--}}
+        <!-- <ul class="nav navbar-nav navbar-right">
+            @if(auth()->guest())
+                @if(!Request::is('auth/login'))
+                    <li><a href="{{ url('/auth/login') }}">Login</a></li>
+                @endif
+                @if(!Request::is('auth/register'))
+                    <li><a href="{{ url('/auth/register') }}">Register</a></li>
+                @endif
+            @else
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ auth()->user()->name }} <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="{{ url('/auth/logout') }}">Logout</a></li>
 
-        {{--<li><a href="{{ url('/admin/profile') }}/{{auth()->user()->id}}">Profile</a></li>--}}
-        {{--</ul>--}}
-        {{--</li>--}}
-        {{--@endif--}}
-        {{--</ul>--}}
+                    <li><a href="{{ url('/admin/profile') }}/{{auth()->user()->id}}">Profile</a></li>
+                </ul>
+            </li>
+            @endif
+        </ul> -->
 
 
 
