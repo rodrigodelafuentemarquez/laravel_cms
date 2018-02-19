@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use \Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use \App\Category;
 use \App\Post;
 use \App\Photo;
@@ -85,7 +86,11 @@ class AdminPostsController extends Controller
     public function edit($id)
     {
         //
-        return view('admin.posts.edit');
+        $post = Post::findOrFail($id);
+        $categories = Category::lists('name', 'id')->all();
+
+        return view('admin.posts.edit', compact('post', 'categories'));
+        return redirect('/admin/posts');
     }
 
     /**
@@ -98,6 +103,19 @@ class AdminPostsController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $input = $request->all();
+
+        if($file = $request->file('photo_id')){
+            $name = time() . $file->getClientOriginalName();
+            $file->move('images', $name);
+            
+            $photo = Photo::create(['file'=>$name]);
+            $input['photo_id'] = $photo->id;
+        }
+
+        Auth::user()->posts()->whereId($id)->first()->update($input);
+
+        return redirect('/admin/posts');
     }
 
     /**
@@ -109,5 +127,12 @@ class AdminPostsController extends Controller
     public function destroy($id)
     {
         //
+        $post = Post::findOrFail($id);
+        unlink(public_path() . $post->photo->file);
+        $post->delete();
+
+        Session::flash('deleted_post', 'The post has been deleted');
+
+        return redirect('/admin/posts');
     }
 }
