@@ -5,7 +5,7 @@
 
 @section('content')
 
-    @foreach($post as $post)
+    @foreach($posts as $post)
         <h2>
             <a href="{{route('home.post', $post->slug)}}">{{$post->title}}</a>
         </h2>

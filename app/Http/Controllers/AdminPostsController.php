@@ -22,7 +22,7 @@ class AdminPostsController extends Controller
     public function index()
     {
         //
-        $posts = Post::all();
+        $posts = Post::paginate(2);
 
         return view('admin.posts.index', compact('posts'));
     }
@@ -146,9 +146,9 @@ class AdminPostsController extends Controller
 
     public function blog()
     {
-        $post = Post::all();
+        $posts = Post::paginate(5);
         $categories = Category::all();
 
-        return view('blog', compact('post', 'categories'));
+        return view('blog', compact('posts', 'categories'));
     }
 }
