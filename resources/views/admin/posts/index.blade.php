@@ -27,6 +27,7 @@
             <th>Body</th>
             <th>Created</th>
             <th>Updated</th>
+            <th>View Post</th>
         </tr>
     </thead>
     <tbody>
@@ -41,6 +42,7 @@
                     <td>{{str_limit($post->body, 30)}}</td>
                     <td>{{$post->created_at}}</td>
                     <td>{{$post->updated_at}}</td>
+                    <td><a href="{{route('home.post', $post->slug)}}">View</td>
                 </tr>
             @endforeach
         @endif

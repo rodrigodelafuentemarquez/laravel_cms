@@ -7,7 +7,7 @@
 
     @foreach($post as $post)
         <h2>
-            <a href="{{route('home.post', $post->id)}}">{{$post->title}}</a>
+            <a href="{{route('home.post', $post->slug)}}">{{$post->title}}</a>
         </h2>
         <p class="lead">
             by <a href="index.php">{{$post->user->name}}</a>
@@ -17,7 +17,7 @@
         <img class="img-responsive" src="{{$post->photo ? $post->photo->file : null}}" alt="">
         <hr>
         <p>{!!str_limit($post->body, 140)!!}</p>
-        <a class="btn btn-primary" href="{{route('home.post', $post->id)}}">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+        <a class="btn btn-primary" href="{{route('home.post', $post->slug)}}">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
     
         <hr>
     @endforeach
