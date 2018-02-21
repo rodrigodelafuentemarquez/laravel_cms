@@ -16,6 +16,15 @@ class Post extends Model
         'category_id', 'photo_id', 'title', 'body'
     ];
 
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'title',
+            ]
+        ];
+    }
+
     public function user(){
         return $this->belongsTo('App\User');
     }
@@ -26,14 +35,5 @@ class Post extends Model
 
     public function category(){
         return $this->belongsTo('App\Category');
-    }
-
-    public function sluggable()
-    {
-        return [
-            'slug' => [
-                'source' => 'title',
-            ]
-        ];
     }
 }

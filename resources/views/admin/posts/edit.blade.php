@@ -5,10 +5,12 @@
 
 @section('content')
 
+    @include('includes.tinyeditor')
+
     <h1>Edit Posts</h1>
 
     <div class="col-sm-3">
-        <img src="{{$post->photo ? $post->photo->file : 'http://via.placeholder.com/300x300'}}" alt="" class="img-responsive img-rounded">
+        <img src="{{$post->photo ? $post->photo->file : null}}" alt="" class="img-responsive img-rounded">
     </div>
 
     <div class="col-sm-9">
