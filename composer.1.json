@@ -8,8 +8,8 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.3.*",
         "twbs/bootstrap": "3.3.7",
-        "laravelcollective/html": "5.3.*",
-        "cviebrock/eloquent-sluggable": "^4.0",
+        "laravelcollective/html": "5.2",
+        "cviebrock/eloquent-sluggable": "^3.1.4",
         "onokumus/metismenu": "^2.7"
     },
     "require-dev": {
