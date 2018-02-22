@@ -47,6 +47,7 @@ Route::group(['middleware'=>'admin'], function(){
         'store'=>'admin.media.store',
         'edit'=>'admin.media.edit',
     ]]);
+    Route::delete('admin/delete/media', 'AdminMediasController@deleteMedia');
 });
 
 Route::get('/home', 'HomeController@index');
