@@ -15,6 +15,10 @@ Auth::routes();
 
 Route::get('/logout', 'Auth\LoginController@logout');
 
+Route::get('/register', function () {
+    return redirect('/login');
+});
+
 Route::get('/login', function () {
     return view('admin.login');
 });
