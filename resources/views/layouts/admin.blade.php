@@ -267,7 +267,7 @@
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="{{ url('/admin/users') }}/{{auth()->user()->id}}/edit"><i class="fa fa-gear fa-fw"></i> Settings</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="{{ url('/auth/logout') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+            <a class="dropdown-item" href="{{ url('/logout') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
           </div>
           <!-- /.dropdown-user -->
         </li>

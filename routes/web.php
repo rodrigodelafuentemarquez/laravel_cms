@@ -15,8 +15,8 @@ Auth::routes();
 
 Route::get('/logout', 'Auth\LoginController@logout');
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/login', function () {
+    return view('admin.login');
 });
 
 Route::group(['middleware'=>'admin'], function(){
