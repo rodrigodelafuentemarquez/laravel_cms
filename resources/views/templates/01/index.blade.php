@@ -276,7 +276,31 @@ en un solo día.</h4>
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <?php include('modal-1.php'); ?>
+                <span data-dismiss="modal" style="position: absolute; top: 5px; right: 5px; font-size: 2em;">&times;</span>
+            <div class="banner centro">
+                    <div class="bannerinner">
+                            <h1>En un solo día</h1>
+                            <h3>Ponemos la tecnología al servicio de tu comodidad</h3>
+                    </div>
+            </div>
+            <div class="container">
+                    <div class="bannerhalf reverse">
+                            <div class="halftext" style="padding: 3em;">
+                                <h3>¿Cómo podemos colocar prótesis fijas definitivas en tan solo un día?</h3>
+                                <p>Una combinación de tecnología de vanguardia y un completo equipo médico especializado volcado en el paciente nos permite <strong>reducir al máximo los tiempos de tratamiento</strong>, ofrecer un precio más competitivo y minimizar las molestias post-quirúrgicas.</p>
+                                <p>En un solo día nuestros clientes pueden disfrutar cómodamente de su nueva sonrisa.</p>
+                            </div>
+                            <div class="halfimage">
+                                    <img src="{{asset('images/templates/sedacion2.jpg')}}" style="margin-top:40px;"/>
+                            </div>
+                    </div>
+            </div>
+            <div class="volv" style="display: flex; padding: 1em;">
+                    <div class="btn btn-blanco" data-dismiss="modal" aria-label="Close" style="margin: 0 auto;">
+                            <span style="font-size: 2rem; line-height: 0; margin: 5px 8px 0 0">&times;</span>Volver
+                    </div>
+                    <br />
+            </div>
             </div>
         </div>
     </div>
@@ -285,7 +309,44 @@ en un solo día.</h4>
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <?php include('modal-2.php'); ?>
+                <span data-dismiss="modal" style="position: absolute; top: 5px; right: 5px; font-size: 2em;">&times;</span>
+            <div class="banner centro">
+                    <div class="bannerinner">
+                        <h1>Tecnologías de vanguardia</h1>
+                        <h3>La innovación es nuestra seña de identidad</h3>
+                    </div>
+            </div>
+            <div class="banner" style="background-image:url({{asset('images/templates/maq.jpg')}}); background-position: center; background-size: cover; min-height: 300px;"></div>
+            <div class="container">
+                    <div class="banner centro">
+                        <h3>Cirugía Mínimamente Invasiva</h3>
+                        <p>La <strong>Cirugía Mínimamente Invasiva</strong> guiada por ordenador nos permite planificar virtualmente el tratamiento, garantizando la colocación de los implantes en el punto exacto y alcanzando unas tasas de éxito cercanas al 100%</p>
+                    </div>
+                    <div class="bannerhalf reverse" style="margin-top: 0;">
+                        <div class="halftext">
+                            <h3>Tecnología Digital CAD/CAM</h3>
+                            <p>La <strong>Tecnología Digital CAD/CAM</strong> nos permite realizar simulaciones para que el paciente escoja su nueva sonrisa. Después fabricamos las piezas seleccionadas en el laboratorio, trasladando la máxima fiabilidad de la planificación virtual al resultado final.</p>
+                        </div>
+                        <div class="halfimage maxheight350resp">
+                            <img src="{{asset('images/templates/maq2.jpg')}}" />
+                        </div>
+                    </div>
+                    <div class="bannerhalf">
+                        <div class="halfimage maxheight350resp">
+                                <img src="{{asset('images/templates/maq3.jpg')}}" />
+                        </div>
+                        <div class="halftext">
+                            <h3>Innovación y experiencia</h3>
+                            <p>Nuestro equipo médico especializado en el manejo de estas técnicas supone una mezcla perfecta de innovación y experiencia al servicio de nuestros pacientes.</p>
+                        </div>
+                    </div>
+            </div>
+            <div class="volv" style="display: flex; padding: 1em;">
+                    <div class="btn btn-blanco" data-dismiss="modal" aria-label="Close" style="margin: 0 auto;">
+                            <span style="font-size: 2rem; line-height: 0; margin: 5px 8px 0 0">&times;</span>Volver
+                    </div>
+                    <br />
+            </div>
             </div>
         </div>
     </div>
@@ -294,7 +355,33 @@ en un solo día.</h4>
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <?php include('modal-3.php'); ?>
+                <span data-dismiss="modal" style="position: absolute; top: 5px; right: 5px; font-size: 2em;">&times;</span>
+            <div class="banner centro">
+                    <div class="bannerinner">
+                            <h1>Sin prótesis provisionales</h1>
+                            <h3>En tan solo 24 horas y con la mayor precisión, se recupera la sonrisa y la masticación.</h3>
+                    </div>
+            </div>
+            <div class="banner" style="background-image:url({{asset('images/templates/prot3.jpg')}}); background-size: cover; background-position: 75%; min-height: 300px;"></div>
+            <div class="container">
+                    <div class="bannerhalf reverse">
+                            <div class="halftext" style="padding: 3em;">
+                                <h3>¿Qué ventajas logra Aviles Digital Dental Clinic frente a otras técnicas tradicionales?</h3>
+                                <p>Gracias a la incorporación de procesos digitalizados 360º superamos el principal obstáculo de la técnica tradicional: tener que utilizar una prótesis provisional hasta que se confecciona la definitiva. Contamos con un gran aliado en la tecnología que nos permite ganar en planificación, precisión y rapidez.</p>
+                                <p>Todo ello con la máxima comodidad, flexibilidad y las menores molestias para el paciente.</p>
+                            </div>
+                            <div class="halfimage" style="max-height:350px;">
+                                    <img src="{{asset('images/templates/prot5.png')}}" style="margin-top:40px;"/>
+                            </div>
+                    </div>
+            </div>
+
+            <div class="volv" style="display: flex; padding: 1em;">
+                    <div class="btn btn-blanco" data-dismiss="modal" aria-label="Close" style="margin: 0 auto;">
+                            <span style="font-size: 2rem; line-height: 0; margin: 5px 8px 0 0">&times;</span>Volver
+                    </div>
+                    <br />
+            </div>
             </div>
         </div>
     </div>

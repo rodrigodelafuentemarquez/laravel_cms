@@ -23,10 +23,6 @@ Route::get('/login', function () {
     return view('admin.login');
 });
 
-Route::get('/template1', function(){
-    return view('templates.01.1');
-});
-
 Route::group(['middleware'=>'admin'], function(){
     Route::get('/admin', function(){
         return view('admin.index');
@@ -70,3 +66,15 @@ Route::get('/home', 'HomeController@index');
 Route::get('/blog', ['as'=>'home.blog', 'uses'=>'AdminPostsController@blog']);
 
 Route::get('/post/{id}', ['as'=>'home.post', 'uses'=>'AdminPostsController@post']);
+
+Route::get('/{id}', ['as'=>'home.page', 'uses'=>'AdminPagesController@page']);
+
+/* Route::get('/template1', function(){
+    return view('templates.01.index');
+});
+Route::get('/template1/preparada', function(){
+    return view('templates.01preparada.index');
+});
+Route::get('/template1/edit', function(){
+    return view('templates.01edit.index');
+}); */

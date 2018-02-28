@@ -144,11 +144,18 @@ class AdminPagesController extends Controller
     public function destroy($id)
     {
         //
-        $page = Page::findOrFail($id);
+        $page = Pages::findOrFail($id);
         $page->delete();
 
         Session::flash('deleted_page', 'The page has been deleted');
 
         return redirect('/admin/pages');
+    }
+
+    public function page($slug)
+    {
+        $page = Pages::where('slug', $slug)->firstOrFail();
+
+        return view('page', compact('page'));
     }
 }
