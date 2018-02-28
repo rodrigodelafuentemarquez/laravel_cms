@@ -77,6 +77,21 @@
           </ul>
           <!-- /.nav-second-level -->
         </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Usuarios">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapsePages" data-parent="#exampleAccordion">
+            <i class="fa fa-file-text fa-fw"></i>
+            <span class="nav-link-text">Páginas</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapsePages">
+            <li>
+                <a href="{{route('admin.pages.index')}}">Archivo</a>
+            </li>
+            <li>
+                <a href="{{route('admin.pages.create')}}">Crear Página</a>
+            </li>
+          </ul>
+          <!-- /.nav-second-level -->
+        </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
           <a class="nav-link" href="charts.html">
             <i class="fa fa-fw fa-area-chart"></i>
@@ -320,6 +335,8 @@
   </div>
 
   <script src="{{asset('js/libs.js')}}"></script>
+
+  @yield('scripts')
  
 </body>
 

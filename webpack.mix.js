@@ -41,8 +41,8 @@ mix.scripts([
     'resources/assets/js/libs/jquery.dataTables.js',
     'resources/assets/js/libs/dataTables.bootstrap4.js',
     'resources/assets/js/libs/sb-admin',
-    'resources/assets/js/libs/sb-admin-charts.js',
-    'resources/assets/js/libs/sb-admin-datatables.js',
+    /* 'resources/assets/js/libs/sb-admin-charts.js',
+    'resources/assets/js/libs/sb-admin-datatables.js', */
 
     'resources/assets/js/libs/scripts.js'
 

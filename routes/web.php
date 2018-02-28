@@ -23,6 +23,10 @@ Route::get('/login', function () {
     return view('admin.login');
 });
 
+Route::get('/template1', function(){
+    return view('templates.01.1');
+});
+
 Route::group(['middleware'=>'admin'], function(){
     Route::get('/admin', function(){
         return view('admin.index');
@@ -52,6 +56,13 @@ Route::group(['middleware'=>'admin'], function(){
         'edit'=>'admin.media.edit',
     ]]);
     Route::delete('admin/delete/media', 'AdminMediasController@deleteMedia');
+    Route::resource('admin/pages', 'AdminPagesController', ['names'=>[
+        'index'=>'admin.pages.index',
+        'create'=>'admin.pages.create',
+        'store'=>'admin.pages.store',
+        'edit'=>'admin.pages.edit',
+    ]]);
+    Route::get('/admin/pages/{id}/edit-template', ['as'=>'admin.pages.editTemplate', 'uses'=>'AdminPagesController@editTemplate']);
 });
 
 Route::get('/home', 'HomeController@index');
