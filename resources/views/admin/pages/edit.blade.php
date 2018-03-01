@@ -18,6 +18,10 @@
             {!! Form::text('slug', null, ['class'=>'form-control']) !!}
         </div>
         <div class="form-group">
+            {!! Form::label('posted', 'Publicar:') !!}
+            {!! Form::select('posted', array(1 => 'Sí', 0 => 'No'), 0, ['class'=>'form-control']) !!}
+        </div>
+        <div class="form-group">
             {!! Form::label('template', 'Plantilla:') !!}
             {!! Form::select('template', [''=>'Elige'] + $templates, null, ['class'=>'form-control']) !!}
         </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Pages;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 
 class AdminPagesController extends Controller
@@ -15,7 +16,13 @@ class AdminPagesController extends Controller
     public function index()
     {
         //
-        $pages = Pages::all();
+        /* $pages = Pages::all(); */
+        /* $pages = Pages::groupBy('page_id')->get(); */
+        $postedpages = Pages::wherePosted(1)->get();
+        /* $nopostedpages = Pages::wherePosted(0)->groupBy('page_id')->get(); */
+        /* $nopostedpages = Pages::select('page_id')->distinct()->get(); */
+        /* $nopostedpages = Pages::distinct()->wherePosted(0)->groupBy('page_id')->get(); */
+        $pages = $postedpages->merge($nopostedpages);
 
         return view('admin.pages.index', compact('pages'));
     }
@@ -28,11 +35,9 @@ class AdminPagesController extends Controller
     public function create()
     {
         //
-        $templates = ['1', '2', '3'];
+        $templates = array(1 => '1', '2', '3');
 
-        $parents = Pages::select('parent')->groupBy('parent')->get()->toArray();
-
-        return view('admin.pages.create', compact('templates', 'parents'));
+        return view('admin.pages.create', compact('templates'));
     }
 
     /**
@@ -44,6 +49,13 @@ class AdminPagesController extends Controller
     public function store(Request $request)
     {
         //
+        if(Pages::max('page_id')){
+            $add_pageId = Pages::max('page_id') + 1;
+        } else {
+            $add_pageId = 1;
+        }
+        $request->request->add(['page_id'=>$add_pageId]);
+
         $input = $request->all();
 
         $page = Pages::create($input);
@@ -117,20 +129,57 @@ class AdminPagesController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $oldpage = Pages::findOrFail($id);
+        $oldpage->update(array('posted' => 0));
+        $add_pageId = $oldpage->page_id;
+        $request->request->add(['page_id'=>$add_pageId]);
+        $add_content = $oldpage->content;
+        $request->request->add(['content'=>$add_content]);
+
+        /* if($oldpage->posted == 1){
+            $request->request->add(['posted'=>1]);
+        } else {
+            $request->request->add(['posted'=>0]);
+        } */
+
         $input = $request->all();
+
+        $page = Pages::create($input);
         
-        $page = Pages::findOrFail($id);
+        /* $page = Pages::findOrFail($id);
         
-        $page->update($input);
+        $page->update($input); */
 
         return redirect('/admin/pages');
     }
     public function updateTemplate(Request $request, $id)
     {
+        $oldpage = Pages::findOrFail($id);
+        $add_pageId =  $oldpage->page_id;
+        $request->request->add(['page_id'=>$add_pageId]);
+        $add_name =  $oldpage->name;
+        $request->request->add(['name'=>$add_name]);
+        $add_slug =  $oldpage->slug;
+        $request->request->add(['slug'=>$add_slug]);
+        $add_template =  $oldpage->template;
+        $request->request->add(['template'=>$add_template]);
+
+        if($oldpage->posted == 1){
+            $request->request->add(['posted'=>1]);
+        } else {
+            $request->request->add(['posted'=>0]);
+        }
+        $oldpage->update(array('posted' => 0));
+
+        $input = $request->all();
+
+        $page = Pages::create($input);
         //
+        /* $input = $request->all();
+        
         $page = Pages::findOrFail($id);
         
-        $page->update($input);
+        $page->update($input); */
 
         return redirect('/admin/pages');
     }

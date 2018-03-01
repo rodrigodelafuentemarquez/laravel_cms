@@ -9,6 +9,6 @@ class Pages extends Model
     //
 
     protected $fillable = [
-        'page_id', 'name', 'slug', 'template', 'content',
+        'page_id', 'posted', 'name', 'slug', 'template', 'content',
     ];
 }

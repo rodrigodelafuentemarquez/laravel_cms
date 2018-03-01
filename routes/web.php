@@ -59,6 +59,7 @@ Route::group(['middleware'=>'admin'], function(){
         'edit'=>'admin.pages.edit',
     ]]);
     Route::get('/admin/pages/{id}/edit-template', ['as'=>'admin.pages.editTemplate', 'uses'=>'AdminPagesController@editTemplate']);
+    Route::patch('/admin/pages/{id}/update-template', ['as'=>'admin.pages.updateTemplate', 'uses'=>'AdminPagesController@updateTemplate']);
 });
 
 Route::get('/home', 'HomeController@index');

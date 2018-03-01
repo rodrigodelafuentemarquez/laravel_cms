@@ -22,7 +22,7 @@
                 <tr>
                     <th>Nombre</th>
                     <th>URL</th>
-                    <th>Created</th>
+                    <th>Estado</th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -32,7 +32,13 @@
                     <tr>
                         <td>{{$page->name}}</td>
                         <td>{{$page->slug}}</td>
-                        <td>{{$page->created_at}}</td>
+                        <td>
+                            @if($page->posted == 1)
+                                Pública
+                            @else
+                                Privada
+                            @endif
+                        </td>
                         <td><a href="{{route('admin.pages.edit', $page->id)}}" class="btn btn-primary">Editar Página</a></td>
                         <td><a href="{{route('admin.pages.editTemplate', $page->id)}}" class="btn btn-primary">Editar Plantilla</a></td>
                     </tr>
