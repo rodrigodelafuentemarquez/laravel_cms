@@ -19,7 +19,7 @@ class AdminPagesController extends Controller
         /* $pages = Pages::all(); */
         /* $pages = Pages::groupBy('page_id')->get(); */
         $postedpages = Pages::wherePosted(1)->get();
-        /* $nopostedpages = Pages::wherePosted(0)->groupBy('page_id')->get(); */
+        $nopostedpages = Pages::wherePosted(0)->groupBy('page_id')->get();
         /* $nopostedpages = Pages::select('page_id')->distinct()->get(); */
         /* $nopostedpages = Pages::distinct()->wherePosted(0)->groupBy('page_id')->get(); */
         $pages = $postedpages->merge($nopostedpages);
@@ -35,7 +35,7 @@ class AdminPagesController extends Controller
     public function create()
     {
         //
-        $templates = array(1 => '1', '2', '3');
+        $templates = array(1 => '1', '2', '3', '4');
 
         return view('admin.pages.create', compact('templates'));
     }
@@ -56,7 +56,12 @@ class AdminPagesController extends Controller
         }
         $request->request->add(['page_id'=>$add_pageId]);
 
+        $json = json_encode(['page_id'=>$add_pageId]);
+        $request->request->add(['content'=>$json]);
+
         $input = $request->all();
+
+        
 
         $page = Pages::create($input);
 
